@@ -1,5 +1,6 @@
 use raylib::color::Color;
 use raylib::drawing::{RaylibDraw, RaylibDrawHandle};
+use raylib::math::Vector2;
 use raylib::prelude::Texture2D;
 use raylib::ffi::KeyboardKey;
 
@@ -10,7 +11,7 @@ static mut mi: i32 = 0;
 static mut HYPE: i32 = 0;
 static mut CHAT: String = String::new();
 
-pub unsafe fn draw(d: &mut RaylibDrawHandle, x: i32, y: i32, friend_profile_texture: &Texture2D) {
+pub unsafe fn draw(d: &mut RaylibDrawHandle, x: i32, y: i32, friend_profile_texture: &Texture2D, file_texture: &Texture2D) {
     let friends_user = "owomega";
 
     if i == 0 {
@@ -27,7 +28,7 @@ pub unsafe fn draw(d: &mut RaylibDrawHandle, x: i32, y: i32, friend_profile_text
     d.draw_rectangle(x + 200, y + 570, 800, 100, Color::new(30, 30, 55, 255));
 
     // upload file
-    d.draw_rectangle(x + 905, y + 575, 90, 90, Color::GRAY);
+    d.draw_texture_ex(file_texture, Vector2::new((x + 905) as f32, (y + 575) as f32), 0.0, 2.8, Color::WHITE);
 
     // chat
     d.draw_text(CHAT.as_str(), x + 205, y + 540 - (35 * (i + mi)), 24, Color::WHITE);

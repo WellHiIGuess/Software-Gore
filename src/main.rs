@@ -55,6 +55,7 @@ fn main() {
     let discord_texture = rl.load_texture(&thread, "src/images/discord.png");
     let friend_profile_texture = rl.load_texture(&thread, "src/images/profile.png");
     let friend_profile_texture_copy = rl.load_texture(&thread, "src/images/profile.png");
+    let file_texture = rl.load_texture(&thread, "src/images/file.png");
     let mut discord_x;
     let mut discord_y;
 
@@ -138,7 +139,7 @@ fn main() {
 
                 unsafe {
                     if apps[0].opened && j == 0 {
-                        discord::draw(&mut d, apps[0].x, apps[0].y + 30, friend_profile_texture.as_ref().unwrap());
+                        discord::draw(&mut d, apps[0].x, apps[0].y + 30, friend_profile_texture.as_ref().unwrap(), file_texture.as_ref().unwrap());
                     }
 
                     if apps[1].opened && j == 1 {
